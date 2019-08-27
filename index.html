@@ -57,7 +57,34 @@ button {
     width:100%;
     height:400px;
     object-fit: cover;
-}       
+} 
+/*CODE POUR LIGHTBOX */
+.grande-image {
+    position:fixed;
+    top:-2000px;
+    left:0;
+    background-color: rgba(0,0,0,0.5);
+    width:100%;
+    height:100%;
+    padding:4rem;
+    display:block;
+    z-index:-1;
+    opacity:0;
+    transition:all 1s;
+    width:100%;
+    height:100%;
+}
+
+/* LA BALISE DOIT AVOIR LES 2 CLASSES POUR ETRE SELECTIONNEE */
+.grande-image.montrer {
+    display:block;
+    opacity:1;
+    z-index:99;
+    width:100%;
+    height:100%;
+    left:0px;
+    top:0;
+}
     </style>
 </head>
 <body>
@@ -128,8 +155,23 @@ listePhoto.forEach((image) => {
         photoGrand.src = this.src;
         // DEBUG
         console.log(this);
+
+        // IL FAUT AFFICHER LA LIGHTBOX
+        var lightBox = document.querySelector(".grande-image");
+        // IL FAUT CHANGER LE display A block
+        // lightBox.style.display = 'block';
+        // IL FAUT AJOUTER LA CLASSE montrer A LA BALISE
+        lightBox.classList.add('montrer');
     });
 });
+
+// IL FAUT POUVOIR CACHER LA LIGHTBOX SI ON CLIQUE DESSUS
+var lightBox = document.querySelector(".grande-image");
+lightBox.addEventListener('click', function() {
+    // IL FAUT CACHER LA LIGHTBOX
+    lightBox.classList.remove('montrer');
+});
+
 
     </script>
 </body>
