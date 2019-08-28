@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+html, body {
+    width:100%;
+    height:100%;
+}
+
+/* FLEX ME PERMET DE CONSTRUIRE UNE PAGE RESPONSIVE DE MANIERE GENERALE */
+.ligne {
+    display: flex;
+    width:100%;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+/* LIGNE PAR DEFAUT DE 4 COLONNES */
+.ligne > * {
+    width:calc(100% / 4);
+    min-width:100px;
+    border-bottom:1px solid green;
+}        
+/* LIGNE SPECIALE DE 6 COLONNES */
+.ligne.x6colonne > * {
+    width:calc(100% / 6);
+    min-width:80px;
+}
+
+.ligne .largeur2 {
+    border-bottom:1px solid blue;
+}
+
+img  {
+    width:100%;
+    height:200px;
+    object-fit:cover;
+}
+/* ET JE PEUX COMPLETER AVEC DES CAS PARTICULIERS EN AJOUTANT DES MEDIA QUERIES */
+
+@media screen and (min-width: 425px) {
+    .ligne .largeur2 {
+        width:160px;
+        background-color:orange;
+    }
+}
+
+/* MENU EN FLEX */
+ul {
+    list-style: none;
+}
+nav a {
+    text-decoration: none;
+}
+nav ul {
+    display:flex;
+    padding-left:0;
+    width:100%;
+    flex-wrap: wrap;
+}
+nav ul li {
+    width:calc(100% / 3);
+}
+
+.contenu.cache {
+    display:none;
+}
+
+.lettre {
+    display: inline-block;
+}
+    </style>
+</head>
+<body>
+    <header id="entete">
+        <h1>BASE DE CODE EN FLEX</h1>
+        <nav id="menu">
+            <ul>
+                <li><a href="#">menu1</a></li>
+                <li><a href="#">menu2</a></li>
+                <li><a href="#">menu3</a></li>
+                <li><a href="#">menu4</a></li>
+                <li><a href="#">menu5</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h3></h3>
+            <!-- FLEX -->
+            <div class="ligne">
+                <div>
+                    <img id="photo1" class="paysage" src="images/photo1.jpg">
+                </div>
+                <div class="largeur2">
+                    <img src="images/photo2.jpg">
+                </div>
+                <div>
+                    <img src="images/photo3.jpg">
+                </div>    
+                <div>
+                    <img src="images/photo4.jpg">
+                </div>    
+            </div>
+            <!-- FLEX -->
+            <div class="ligne x6colonne">
+                    <div>COLONNE1</div>
+                    <div>COLONNE2</div>
+                    <div>COLONNE3</div>    
+                    <div>COLONNE4</div>    
+                    <div>COLONNE5</div>    
+                    <div>COLONNE6</div>    
+                </div>
+            </section>
+
+            <section class="">
+                <h3 class="bouton">CLIQUER ICI POUR VOIR LE CONTENU</h3>
+                <div class="contenu cache">CONTENU CACHE AU DEPART</div>
+            </section>
+    </main>
+    <footer>
+        <p>tous droits réservés</p>
+    </footer>
+    <script>
+// SI J'AI UNE BALISE QUI A UN id
+// ALORS JS ME CREE UNE VARIABLE AVEC LE MEME NOM
+// (FACILITE ANCIENNE MAIS QUI MARCHE ENCORE)
+console.log(menu);
+console.log(photo1);
+console.log(photo1.src);
+
+// SI JE VEUX AJOUTER UNE CLASSE
+photo1.classList.add("nouvelleClasse");
+
+// SI JE VEUX CHANGER L'IMAGE
+photo1.src = "images/photo2.jpg";
+
+// DE MANIERE GENERALE ON UTILISE LA METHODE getAttribute
+console.log(photo1.getAttribute("src"));
+
+// AJOUTER UNE BALISE AU DEBUT DE header
+entete.prepend("TEXTE EN PLUS");
+
+// ON VEUT MONTRER LE CONTENU SEULEMENT SI LE VISITEUR CLIQUE SUR LE h3.bouton
+bouton = document.querySelector("h3.bouton");
+bouton.addEventListener("click", function(){
+    // CE CODE NE SERA EXECUTE QUE SI LE VISITEUR CLIQUE SUR LE h3.bouton
+    contenu = document.querySelector(".contenu");
+
+    // SI ON VEUT FAIRE UN INTERRUPTEUR
+    // ON DOIT GERER 2 SCENARIOS
+    if (contenu.classList.contains("cache"))
+    {
+        // ON MODIFIE LA BALISE EN ENLEVANT LA CLASSE cache
+        contenu.classList.remove("cache");
+    }
+    else
+    {
+        // ON MODIFIE LA BALISE EN AJOUTANT LA CLASSE cache
+        contenu.classList.add("cache");
+    }
+
+});
+
+h1 = document.querySelector("h1");
+textH1 = h1.innerHTML;
+htmlRemplacement = '';
+for (l=0; l< textH1.length; l++) {
+    lettre = textH1[l];
+    htmlRemplacement = htmlRemplacement + '<span>' + lettre + '</span>';
+    console.log(lettre);
+}
+h1.innerHTML = htmlRemplacement;
+
+// SOULEVER LA LETTRE QUAND LA SOURIS PASSE DESSUS
+lettre1 = document.querySelector("h1 span");
+lettre1.addEventListener("mouseenter", function(){
+    // AJOUTER UN PADDING BOTTOM 
+    lettre1.style.fontSize = '100px';
+});
+lettre1.addEventListener("mouseleave", function(){
+    // AJOUTER UN PADDING BOTTOM 
+    lettre1.style.fontSize = 'inherit';
+});
+
+
+
+</script>
+</body>
+</html>
