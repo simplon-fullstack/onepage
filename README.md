@@ -1,8 +1,8 @@
 # onepage
 site one page
 
-https://prod.liveshare.vsengsaas.visualstudio.com/join?965ADC74AD309AF4EAB365D0116CC6484F88
 
+https://prod.liveshare.vsengsaas.visualstudio.com/join?F94EDF88B1C51488FC391E4C8A59B090AEE4
 
 ## EFFET JS LIGHTBOX
 
