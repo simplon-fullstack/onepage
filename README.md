@@ -1,8 +1,11 @@
 # onepage
+
 site one page
 
+LIEN DU JEUDI 29/08
 
-https://prod.liveshare.vsengsaas.visualstudio.com/join?F94EDF88B1C51488FC391E4C8A59B090AEE4
+https://prod.liveshare.vsengsaas.visualstudio.com/join?14F3C85BB7B5DA0631DE77B4CFA5EAE7334F
+
 
 ## EFFET JS LIGHTBOX
 
@@ -174,6 +177,21 @@ http://phaser.io/
 ## ANIMATION 3D
 
 https://www.babylonjs.com/
+
+
+## EXERCICE SITE VITRINE
+
+HTML => PREPARER UN SITE RESPONSIVE
+CSS  => UTILISER FLEX POUR CREER DES COLONNES
+JS   => AJOUTER INTERACTIVITE POUR CLIQUER ET DECOUVRIR PLUS DE CONTENUS
+PHP  => DECOUPER VOTRE HTML EN FICHIERS PHP
+
+MOTIVATION: CREER UN SITE CV QU'ON PEUT PRESENTER A UN EMPLOYEUR
+
+Accueil
+Mes Compétences
+Mes Projets
+Contact
 
 
 
