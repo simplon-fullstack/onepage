@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+/* MON CODE CSS */
+
+/* COLONNES */
+.ligne {
+    display:flex;
+    flex-wrap:wrap;
+    width:100%;
+}
+
+/* SELECTION DES ENFANTS DIRECTS DE div.ligne */
+.ligne > * {
+    width: calc(100% / 3);
+}
+
+.c1 {
+    background-color: #aaaaaa;
+}
+.c2 {
+    background-color: #666666;
+}
+.c3 {
+    background-color: #cccccc;
+}
+
+/* POUR GERER CERTAINES TAILLES D'ECRAN ON UTILISE LES MESIA QUERIES */
+@media screen and (max-width: 640px) {
+    /* ON REDUIT LE NOMBRE DE COLONNES SI ON EST SUR UN PETIT ECRAN*/
+    .ligne > * {
+        width: calc(100% / 2);
+    }
+
+}
+
+@media screen and (max-width: 425px) {
+    /* ON REDUIT LE NOMBRE DE COLONNES SI ON EST SUR UN PETIT ECRAN*/
+    .ligne > * {
+        width: calc(100% / 1);
+    }
+
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>TITRE DE MA PAGE</h1>
+    </header>
+    <main>
+        <section>
+            <h3 id="titre3">SECTION1</h3>
+            <div class="ligne">
+                <div id="colonne1" class="c1">COLONNE1</div>
+                <div id="colonne2" class="c2">COLONNE2</div>
+                <div class="c3">COLONNE3</div>
+                <div class="c4">COLONNE4</div>
+                <div class="c5">COLONNE5</div>
+                <div class="c6">COLONNE6</div>
+            </div>
+        </section>
+        <section>
+            <h3 id="titre3bis">SECTION2</h3>
+            <div id="contenu3bis"></div>
+        </section>
+        <section>
+            <h3>SECTION3</h3>
+
+        </section>
+    </main>
+    <footer>
+        <p>tous droits réservés</p>
+    </footer>
+    <script>
+// ON ECRIT DES INSTRUCTIONS EN JS
+// LES INSTRUCTIONS SONT EXECUTEES LES UNES APRES LES AUTRES
+// SEQUENCE D'INSTRUCTIONS
+
+// instruction1
+// instruction2
+
+// ASTUCE ANCIENNE
+// LA VARIABLE colonne1 REPRESENTE LA BALISE div id="colonne1"
+console.log(colonne1);
+
+// FONCTIONS
+var maFonction = function () {
+    // LE CODE DANS LA FONCTION ET EN ATTENTE
+    // SI JE VEUX CHANGER LE CONTENU DE LA COLONNE1
+    colonne1.innerHTML = "MON NOUVEAU CONTENU";
+};
+
+// POUR ACTIVER LE CODE DE LA FONCTION
+// ON APPELLE LA FONCTION
+maFonction();
+
+var maFonction2 = function () {
+    colonne2.innerHTML = "TU AS CLIQUE";
+}
+// ON VEUT ACTIVER LE CODE DE maFonction2
+// SI LE VISITEUR CLIQUE SUR LE TITRE h3 id="titre3"
+titre3.addEventListener('click', maFonction2);
+
+// FORME PLUS COMPACTE POUR REALISER LA MEME CHOSE
+titre3bis.addEventListener('click', function () {
+    contenu3bis.innerHTML = 'TU AS CLIQUE';
+});
+
+
+// PROGRAMMATION FONCTIONNELLE
+// => C'EST LA VIE DU DEVELOPPEUR
+// => VOUS CREEZ DES FONCTIONS ET VOUS LES APPELEZ AU BON MOMENT
+
+// FONCTIONS AVEC PARAMETRES ET AVEC VALEUR DE RETOUR
+
+// BOITE AVEC DES ENTREES ET UNE SORTIE
+// nombre1 et nombre2 SONT DES ENTREES 
+// (ON PÖURRA DONNER DES VALEURS EN ENTREES)
+var maFonctionSomme = function (nombre1, nombre2) {
+    // return PERMET DE PRODUIRE UNE VALEUR EN SORTIE
+    return nombre1 + nombre2;
+}
+
+// POUR ACTIVER LE CODE DE MA FONCTION
+// JE PEUX APPELER LA FONCTION EN FOURNISSANT LES ENTREES
+var somme = maFonctionSomme(10, 50);        // nombre1 = 10 ET nombre2 = 50
+console.log(somme);
+
+// ON PEUT APPELER PLUSIEURS FOIS LA MEME FONCTION 
+// MAIS AVEC DES ENTREES DIFFERENTES
+var somme2 = maFonctionSomme(31, 10);        // nombre1 = 10 ET nombre2 = 50
+console.log(somme2);
+
+var calulerSurfaceMurs = function (hauteur, largeur, longueur)
+{
+    return 2 * (largeur + longueur) * hauteur;
+}
+
+// EXEMPLE: 
+// hauteur 2
+// largeur 3
+// longueur 4
+// surface des 4 murs ?
+// 28
+// MUR1 hauteur * largeur
+// MUR2 hauteur * longueur
+// MUR3 hauteur * largeur
+// MUR4 hauteur * longueur
+
+var surface = calulerSurfaceMurs(2, 3, 4);
+console.log(surface);
+
+var surface = calulerSurfaceMurs(5, 8, 12);
+console.log(surface);
+
+// EXERCICE SUR LES FONCTIONS
+
+// CREER UNE FONCTION QUI RENVOIE LE PLUS PETIT DE 2 NOMBRES
+function trouverPetit2 (nombre1, nombre2)
+{
+    // AJOUTER LE CODE MANQUANT
+    if (nombre1 > nombre2) 
+        plusPetit2 = nombre2;
+    else
+        plusPetit2 = nombre1;
+
+    // LE RESULTAT EST LE PLUS PETIT NOMBRE
+    return plusPetit2;
+}
+
+// EXEMPLE
+console.log(trouverPetit2(12, 5));  // 5
+console.log(trouverPetit2(120, 500));  // 120
+
+function trouverPetit3 (nombre1, nombre2, nombre3)
+{
+    // AJOUTER LE CODE MANQUANT
+    if (nombre1 < nombre2)
+    {
+        plusPetit3 = nombre1;
+    }
+    else
+    {
+        plusPetit3 = nombre2;
+    }
+
+    if (plusPetit3 > nombre3)
+    {
+        plusPetit3 = nombre3;
+    }
+
+    return plusPetit3;
+}
+
+function trouverPetitN (tabNombre)
+{
+    plusPetitN = tabNombre[0];
+    // COMPLETER LE CODE MANQUANT
+    // PARCOURIR LE TABLEAU DU DEBUT A LA FIN
+    tabNombre.forEach(function (nombre) {
+        // console.log(nombre);
+        // POUR CHAQUE ELEMENT ON LE COMPARE AVEC LE PLUS PETIT
+        if (nombre < plusPetitN)
+            plusPetitN = nombre;
+    });
+
+    return plusPetitN;
+}
+
+function trouverGrandN (tabNombre)
+{
+
+}
+
+console.log('PLUS PETIT N');
+console.log(trouverPetitN([ 12, 34, 5, 65, 88, 999 ]));
+
+// 36, 12, 200
+console.log('PLUS PETIT 3');
+console.log(trouverPetit3(36, 12, 200));
+console.log(trouverPetit3(31, 166, 2009));
+console.log(trouverPetit3(29, 08, 2009));
+
+
+
+
+// OBJETS
+// UN OBJET EST UN CONTAINER DANS LEQUEL ON PEUT GROUPER PLUSIEURS VALEURS
+// (SIMILAIRE AUX TABLEAUX => INDICES)
+// OBJETS => PROPRIETES POUR DISTINGUER LES VALEURS
+
+var monObjet = {
+    'prop1' : 'valeur1',
+    'prop2' : 'valeur2',
+    'prop3' : 'valeur3'
+};
+
+// POUR RETROUVER UNE VALEUR ON PASSE PAR SA PROPRIETE
+var element2 = monObjet.prop2;
+console.log(element2);
+
+// SI JE VEUX MODIFIER UNE VALEUR
+monObjet.prop3 = 'nouvelle valeur 3';
+
+// ON PEUT AJOUTER DES ELEMENTS SUPPLEMENTAIRES
+monObjet.prop4 = 'valeur4';
+
+monObjet.maFonction = function () {
+    return 'resultat';
+};
+
+console.log(monObjet);
+
+// SI JE VEUX APPELER LA FONCTION
+var resultat = monObjet.maFonction();
+console.log(resultat);
+
+// document.querySelector("h1");
+// objet.fonction(entree);
+// => PROGRAMMATION ORIENTE OBJET
+// => ON RANGE NOS FONCTIONS DANS DES OBJETS
+// => ON PARLE ALORS DE METHODES (POUR DISTINGUER DES FONCTIONS CLASSIQUES)
+
+var maMethode = function () {
+    // ON VA UTILISER this
+    // this EST UNE VARIABLE SPECIALE DE JS
+    // ET QUI DONNE L'OBJET DONT ON S'EST SERVI POUR APPELER LA METHODE
+    console.log(this);
+};
+
+var objet1 = { 'nom': 'maurice' };
+var objet2 = { 'nom': 'florence' };
+
+// JE RANGE maMethode DANS 2 OBJETS DIFFERENTS
+objet1.methode = maMethode;
+objet2.methode = maMethode;
+
+// JE VAIS APPELER LA METHODE SUR LES 2 OBJETS
+objet1.methode(); // this = objet1
+objet2.methode(); // this = obejt2
+
+var listeColonne = document.querySelectorAll('.ligne > *');
+listeColonne.forEach(function(colonne) {
+    colonne.addEventListener('click', maMethode);
+});
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
